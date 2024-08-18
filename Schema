@@ -1,0 +1,29 @@
+
+1. Users
+user_id (Primary Key): Unique identifier for each user.
+name: Name of the user.
+email: Email address of the user.
+password: Password for user login/authentication.
+role: Role of the user (admin, donor, community_manager).
+
+2. Communities
+community_id (Primary Key): Unique identifier for each community.
+community_name: Name of the community.
+location: Location of the community.
+
+3. CommunityManagers
+community_manager_id (Primary Key): Unique identifier for each community manager.
+user_id (Foreign Key): ID of the user who is the community manager.
+community_id (Foreign Key): ID of the community managed by the community manager.
+
+4. Donations
+donation_id (Primary Key): Unique identifier for each donation.
+item_name: Name/description of the item being donated.
+item_type: Type of the item (monetary, in-kind).
+value: Monetary value of the item (nullable if the item is in-kind and the value isn't specified).
+quantity: Quantity of the item (useful for in-kind donations).
+user_id (Foreign Key): ID of the user (donor) who made the donation.
+community_id (Foreign Key): ID of the community receiving the donation.
+donation_date: Date when the donation was made.
+remaining_quantity: Quantity of the item remaining after partial donations.
+status: Status of the donation (pending, received, not_received).
